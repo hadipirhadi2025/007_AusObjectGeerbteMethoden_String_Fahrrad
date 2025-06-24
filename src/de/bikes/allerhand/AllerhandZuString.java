@@ -1,5 +1,7 @@
 package de.bikes.allerhand;
 
+import java.util.Scanner;
+
 /**
  * <pre>
  *     Objectvergleiche: String
@@ -12,6 +14,9 @@ package de.bikes.allerhand;
  *            b) ja: totalLecker = "Kaffee" :
  *                totalLecker: bekommt die Adresse aus dem String Pool
  *            String im String Pool werden nicht für Garbage Collector freigegeben.
+ *
+ *            String Objekt können nach der Erzeugung nicht mehr geändert werden:Immutable
+ *            Die Methoden aus der String Klasse erstellen neue String
  * </pre>
  */
 public class AllerhandZuString {
@@ -26,5 +31,26 @@ public class AllerhandZuString {
 
         boolean vergleich = dasWichtigste== totalLecker;
         System.out.println("dasWichtigste == totalLecker: "+vergleich);
+
+        dasWichtigste.toUpperCase();
+        System.out.println(totalLecker);
+        System.out.println(dasWichtigste);
+
+        String gross = dasWichtigste.toUpperCase();
+        System.out.println(gross);
+
+        String passwort = "passwort";
+        System.out.println("Gibt das passwort ein");
+        Scanner lesser = new Scanner(System.in);
+        String  eingabe = lesser.nextLine();
+        if (eingabe==passwort){
+            System.out.println("Du Darfst rein");
+        }else{
+            System.out.println("Du bleibst draußen");
+        }
+        vergleich = eingabe.equals(passwort);
+        //equals bei strings: vergleicht doe Buchstaben im String: inhaltlicher Vergleich
+        System.out.println("eingabe.equals(passwort): " + vergleich);
+
     }
 }
