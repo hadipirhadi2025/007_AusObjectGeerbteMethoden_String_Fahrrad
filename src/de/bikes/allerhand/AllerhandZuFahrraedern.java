@@ -44,6 +44,9 @@ public class AllerhandZuFahrraedern {
 
         vergleich = erstesRad.equals(zweitesRad);
         System.out.println("erstesRad.equals(zweitesRad): "+vergleich);
+
+        System.out.println("ErstestRad: " + erstesRad.hashCode() + " zweiesRad " +
+                zweitesRad.hashCode());
     }
 
 

@@ -113,9 +113,16 @@ public class Fahrrad {
         Entscheidung: Welche Attribute sinf entscheidend, ob true oder false zurück geben wird
         Hier wird das Herstellungsdatum nicht vergleichen: Um die Entscheidung zu simmulieren:
         Herstellungsdatum ist nicht wichtig für den Vergleich
-         */
+
+        if(!vergleichsRad.getDatumDerHerstellung().equals(datumDerHerstellung)){
+            return false;
+        }
+        */
         return true;
     }
 
-
+    @Override
+    public int hashCode() {
+        return groesse*typ.hashCode()*farbe.hashCode();
+    }
 }
