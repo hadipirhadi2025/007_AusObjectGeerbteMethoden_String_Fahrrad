@@ -1,6 +1,7 @@
 package de.bikes.daten.pojos;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * <pre>
@@ -81,48 +82,65 @@ public class Fahrrad {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(this == obj){
-            return true;
-        }
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
 
-        if(obj==null){
-            return false;//TODO: exception
-        }
-
-        if(this.getClass() != obj.getClass()){
-            return false;
-        }
-
-        Fahrrad vergleichsRad = (Fahrrad) obj;
-
-        if(!vergleichsRad.getTyp().equals(typ)){
-            return false;
-        }
-
-        if(!vergleichsRad.getFarbe().equals(farbe)){
-            return false;
-        }
-
-        if(vergleichsRad.getGroesse()!=groesse){
-            return false;
-        }
-        /*
-        vergleichsRad.getDatumDerHerstellung().
-
-        Entscheidung: Welche Attribute sinf entscheidend, ob true oder false zurück geben wird
-        Hier wird das Herstellungsdatum nicht vergleichen: Um die Entscheidung zu simmulieren:
-        Herstellungsdatum ist nicht wichtig für den Vergleich
-
-        if(!vergleichsRad.getDatumDerHerstellung().equals(datumDerHerstellung)){
-            return false;
-        }
-        */
-        return true;
+        Fahrrad fahrrad = (Fahrrad) o;
+        return groesse == fahrrad.groesse && Objects.equals(typ, fahrrad.typ) && Objects.equals(farbe, fahrrad.farbe) && Objects.equals(datumDerHerstellung, fahrrad.datumDerHerstellung);
     }
 
     @Override
     public int hashCode() {
-        return groesse*typ.hashCode()*farbe.hashCode();
+        int result = Objects.hashCode(typ);
+        result = 31 * result + Objects.hashCode(farbe);
+        result = 31 * result + groesse;
+        result = 31 * result + Objects.hashCode(datumDerHerstellung);
+        return result;
     }
+
+    //    @Override
+//    public boolean equals(Object obj) {
+//        if(this == obj){
+//            return true;
+//        }
+//
+//        if(obj==null){
+//            return false;//TODO: exception
+//        }
+//
+//        if(this.getClass() != obj.getClass()){
+//            return false;
+//        }
+//
+//        Fahrrad vergleichsRad = (Fahrrad) obj;
+//
+//        if(!vergleichsRad.getTyp().equals(typ)){
+//            return false;
+//        }
+//
+//        if(!vergleichsRad.getFarbe().equals(farbe)){
+//            return false;
+//        }
+//
+//        if(vergleichsRad.getGroesse()!=groesse){
+//            return false;
+//        }
+//        /*
+//        vergleichsRad.getDatumDerHerstellung().
+//
+//        Entscheidung: Welche Attribute sinf entscheidend, ob true oder false zurück geben wird
+//        Hier wird das Herstellungsdatum nicht vergleichen: Um die Entscheidung zu simmulieren:
+//        Herstellungsdatum ist nicht wichtig für den Vergleich
+//
+//        if(!vergleichsRad.getDatumDerHerstellung().equals(datumDerHerstellung)){
+//            return false;
+//        }
+//        */
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return groesse*typ.hashCode()*farbe.hashCode();
+//    }
 }
