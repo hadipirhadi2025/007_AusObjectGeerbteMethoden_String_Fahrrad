@@ -36,6 +36,15 @@ public class AllerhandZuFahrraedern {
         //mehr eferenziert: Dieser Bereich ist frei für den Garbage Collector
         //der Garbage Collector gibt nicht mehr benutzen speicher frei, damit er von anderen objecten
 
+        System.out.println("\n-------------------------------------------------\n");
+        erstesRad = new Fahrrad();
+        zweitesRad = new Fahrrad();
+        vergleich = erstesRad == zweitesRad;
+        System.out.println("erstesRad==zweiRad: "+vergleich);
+
+        vergleich = erstesRad.equals(zweitesRad);
+        System.out.println("erstesRad.equals(zweitesRad): "+vergleich);
     }
+
 
 }

@@ -79,4 +79,43 @@ public class Fahrrad {
                 ", datumDerHerstellung=" + datumDerHerstellung +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+
+        if(obj==null){
+            return false;//TODO: exception
+        }
+
+        if(this.getClass() != obj.getClass()){
+            return false;
+        }
+
+        Fahrrad vergleichsRad = (Fahrrad) obj;
+
+        if(!vergleichsRad.getTyp().equals(typ)){
+            return false;
+        }
+
+        if(!vergleichsRad.getFarbe().equals(farbe)){
+            return false;
+        }
+
+        if(vergleichsRad.getGroesse()!=groesse){
+            return false;
+        }
+        /*
+        vergleichsRad.getDatumDerHerstellung().
+
+        Entscheidung: Welche Attribute sinf entscheidend, ob true oder false zurück geben wird
+        Hier wird das Herstellungsdatum nicht vergleichen: Um die Entscheidung zu simmulieren:
+        Herstellungsdatum ist nicht wichtig für den Vergleich
+         */
+        return true;
+    }
+
+
 }

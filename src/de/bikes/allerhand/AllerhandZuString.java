@@ -17,6 +17,8 @@ import java.util.Scanner;
  *
  *            String Objekt können nach der Erzeugung nicht mehr geändert werden:Immutable
  *            Die Methoden aus der String Klasse erstellen neue String
+ *
+ *            String sollen immer mit equals vergleichen werden, nie mit ==
  * </pre>
  */
 public class AllerhandZuString {
@@ -51,6 +53,10 @@ public class AllerhandZuString {
         vergleich = eingabe.equals(passwort);
         //equals bei strings: vergleicht doe Buchstaben im String: inhaltlicher Vergleich
         System.out.println("eingabe.equals(passwort): " + vergleich);
+        System.out.println("Besser vergleichen");
+        if (eingabe.equals(passwort)){
+            System.out.println("Endlich drin!");
+        }
 
     }
 }
