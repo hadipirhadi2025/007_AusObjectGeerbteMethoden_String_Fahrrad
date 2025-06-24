@@ -8,6 +8,7 @@ import de.bikes.daten.pojos.Fahrrad;
  *
  *     Objektvergleich
  *         == Operator
+ *         == Operator vergleich den Inhalt von zwei
  * </pre>
  */
 public class AllerhandZuFahrraedern {
